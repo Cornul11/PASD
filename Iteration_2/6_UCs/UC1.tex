@@ -1,0 +1,153 @@
+\subsubsection{Rationale/Context}
+In order to travel, every commuter has to buy a ticket. This can be done in two ways, either by going to the office of the Ferry Service or by buying a ticket online through the new system. 
+\subsubsection{User story}
+As a \textit{commuter}, I want to \textit{buy a ticket} on a given date, time, from, from a given origin to a given destination.
+\subsubsection{Use Case}
+\creator{\studentA}
+%\updater{Name \textsc{Surname}}
+%\secondUpdater{Name \textsc{Surname}}
+
+\textbf{Use Case Name:} Create a ticket
+
+\textbf{Scope:} Tickets reservation system
+
+\textbf{Level:} User Goal
+
+\textbf{Primary Actor:} Commuter
+
+\textbf{Stakeholders and Interests:} 
+\begin{itemize}
+\item \textit{Commuter:} Wants to buy a ticket quickly through the website, without having to go to the office.
+\item \textit{Seller:} Wants the ticket purchasing process to become automated, thus to have less paperwork and less manual work.
+\end{itemize}
+
+\textbf{Preconditions:}
+\begin{itemize}
+\item The user is authenticated on the website and his account is confirmed.
+\end{itemize}
+
+\textbf{Success Guarantee (Postconditions):}
+\begin{itemize}
+    \item State change: The information of ticket has been added and the information about a trip has been updated.
+    \item Output: A .pdf file containing the e-ticket shown to the screen and sent to the traveller's email address.
+\end{itemize}
+
+\textbf{Main Success Scenario (Basic Flow):}
+\begin{enumerate}
+\item The User indicates to the System, the wish to buy a ticket.
+\item The System sends the User a ticket selection form.
+\item The User fills in the form: first name of the passenger, last name of the passenger, the type of ferry, the date of departure, the time of departure, the date of return, the time of return, the origin, and the destination.
+\item The User sends the System the filled-in ticket selection form.
+\item The System checks whether the form is completed correctly (i.e., complete and error-free).
+\item The System informs the User about its findings ("Ok" or indicating the gaps and errors found).
+\item If the form is not completed correctly, steps 3 - 6 will be repeated.
+\item The System sends the User a payment method form with possible payment methods.
+\item The User fills in the form: payment method.
+\item The User sends the System the filled-in payment method form.
+\item The System checks whether the form is completed correctly (i.e., complete and error-freee).
+\item The System informs the User about its findings ("Ok" or indicating the gaps and errors found).
+\item If the form is not completed correctly, steps 9 - 12 will be repeated.
+\item The System executes a transaction using the given payment method.
+\item The System generates a new, unique ticket code.
+\item The System stores all the information about the ticket and updates the availability of tickets for that specific journey.
+\item The System generates an e-ticket and shows it to the screen.
+\item The System sends the ticket the user's email address.
+\end{enumerate}
+Extensions:
+\begin{enumerate}
+    \item[13a.1.] If the has chosen iDEAL in the form at step 9, the System sends the User a form containing the possible banks.
+    \item[13a.2.] The User chooses the preferred bank.
+    \item[13a.3.] The User sends the System the filled-in payment information form.
+    \item[13a.4.] The System checks whether the form is completed correctly (i.e., complete and error-free).
+    \item[13a.5.] The System informs the User about its findings ("Ok" or indicating the gaps and errors found).
+    \item[13a.6.] If the form is not completed correctly, steps 13a.2 - 13a.5 will be repeated.
+    \item[] \phantom{x}
+    
+    \item[13ba.] If the User has chosen Credit Card in the form at step 9 and the user has a saved credit card, the System sends the User a form with the following prefilled fields:  cardholder name, card number, card expiration date
+    \item[13bb.] If the User has chosen Credit Card in the form at step 9, the System sends the User a form with the following prefilled fields: Cardholder name, Card number, Card expiration date, Card CVV code, Facturation Address.
+    \item[] \phantom{x}
+    
+    \item[13b.1.] The User fills in the payment information form.
+    \item[13b.2.] The User sends the System the filled-in payment information form.
+    \item[13b.3.] The System checks whether the form is completed correctly (i.e., complete and error-free).
+    \item[13b.4.] The System informs the User about its findings ("Ok" or indicating the gaps and errors found).
+    \item[13b.5.] If the form is not completed correctly, steps 13b.1 - 13b.4 will be repeated.
+    \item[] \phantom{x}
+    
+    \item[14a.] If the transaction fails, then the System show the reason of the error to the User and returns him to the payment information form.
+\end{enumerate}
+
+\textbf{Technology And Data Variations List:} 
+\begin{itemize}
+    \item Last name, First name, Cardholder name: String with alphabetical characters only
+    \item Departure and return date: Date of the form DD/MM/YYYY
+    \item Card expiration date: Date of the form MM/YYYY
+    \item Time of departure and return: Time of the form HH:MM from a given list
+    \item CVV card code: Three digit number
+    \item Destination and origin name, Ferry type, Bank name: String chosen from a list
+    \item Bank name: String chosen from a list
+    \end{itemize}
+
+\textbf{Frequency of Occurrence:} Multiple times a day, every day.
+
+\subsubsection{SSD}
+\creator{\studentA}
+%\updater{Name \textsc{Surname}}
+%\secondUpdater{Name \textsc{Surname}}
+Considering the previous sub-sections we can create the following SSD model:\\\\
+User $\rightarrow$ System: Buy a ticket;\hfill /* 1\\
+System $\rightarrow$ User: Ticket selection form;\hfill /* 2\\
+repeat User $\rightarrow$ User: Fill in the form with: the \underline{first name} of the passenger, \underline{last name} of the passenger, \underline{type of ferry}, \underline{date of departure}, \underline{time of departure}, \underline{date of return}, \underline{time of return}, \underline{origin city}, \underline{desination city};\hfill /* 3\\
+\phantom{x}\hspace{7mm} User $\rightarrow$ System: Filled-in Ticket selection form;\hfill /* 4\\
+\phantom{x}\hspace{7mm} System $\rightarrow$ System: Check whether the form is completed correctly; \hfill /* 5\\
+\phantom{x}\hspace{7mm} System $\rightarrow$ User: "Ok" or the found gaps and errors;\hfill /* 6\\
+until the form is completed correctly;\hfill /* 7\\
+System $\rightarrow$ User: Payment method form;\hfill /* 8\\
+repeat User $\rightarrow$ User: Fill in the payment method form with: \underline{payment method};\hfill /* 9\\
+\phantom{x}\hspace{7mm} User $\rightarrow$ System: Filled-in payment form;\hfill /* 10\\
+\phantom{x}\hspace{7mm} System $\rightarrow$ System: Check whether the form is completed correctly; \hfill /* 11\\
+\phantom{x}\hspace{7mm} System $\rightarrow$ User: "Ok" or the found gaps and errors;\hfill /* 12\\
+until the form is completed correctly;\hfill /* 13\\
+if payment method is iDEAL\\
+then System $\rightarrow$ User: Payment form containing the \underline{possible banks};\hfill /* 13a.1\\
+\phantom{x}\hspace{7mm} repeat User $\rightarrow$ User: Fill in the bank of choice;\hfill /* 13a.2\\
+\phantom{x}\hspace{14mm} User $\rightarrow$ System: Filled-in payment information form;\hfill /* 13a.3\\
+\phantom{x}\hspace{14mm} System $\rightarrow$ System: Check whether the form is completed correctly; \hfill /* 13a.4\\
+\phantom{x}\hspace{14mm} System $\rightarrow$ User: "Ok" or the found gaps and errors;\hfill /* 13a.5\\
+\phantom{x}\hspace{7mm} until the form is completed correctly;\hfill /* 13a.6\\
+else\\
+\phantom{x}\hspace{7mm} if saved credit card\\
+\phantom{x}\hspace{7mm} then System $\rightarrow$ User: Payment information form, prefilled with \underline{creditcard holder},\\ \underline{credit card expiration date}, \underline{credit card number};\hfill /* 13ba\\
+\phantom{x}\hspace{7mm} else System $\rightarrow$ User: Payment information form;\hfill /* 13bb\\
+\phantom{x}\hspace{14mm} repeat User $\rightarrow$ User: Fill in payment infromation form;\hfill /* 13b.1\\
+\phantom{x}\hspace{21mm} User $\rightarrow$ System: Filled-in payment information form;\hfill /* 13b.2\\
+\phantom{x}\hspace{21mm} System $\rightarrow$ System: Check whether the form is completed correctly; \hfill /* 13b.3\\
+\phantom{x}\hspace{21mm} System $\rightarrow$ User: "Ok" or the found gaps and errors;\hfill /* 13b.4\\
+\phantom{x}\hspace{14mm} until the form is completed correctly;\hfill /* 13b.5\\
+\phantom{x}\hspace{7mm} fi\\
+fi\\
+System $\rightarrow$ System: MakeTransaction;\hfill /* 14\\
+if transaction failed\\
+then System $\rightarrow$ User: Show reason for transaction failure and restart process;\hfill /* 14a\\
+else System $\rightarrow$ System: GenerateUniqueTicketNumber;\hfill /* 15\\
+\phantom{x}\hspace{4mm} System $\rightarrow$ System: SaveInformation;\hfill /* 16\\
+\phantom{x}\hspace{4mm} System $\rightarrow$ User: Show the generated e-ticket;\hfill /* 17\\
+\phantom{x}\hspace{4mm} System $\rightarrow$ User: Send the generated e-ticket to the user's email; \hfill /* 18\\
+fi
+
+%\includegraphics[scale=0.9]{UC1}
+\iffalse
+\subsubsection{Grey box SD}
+\creator{Name \textsc{Surname}}
+\updater{Name \textsc{Surname}}
+%\includegraphics[scale=0.9]{UC1gb.pdf}
+
+\subsubsection{Whte box SD}
+\creator{Name \textsc{Surname}}
+\updater{Name \textsc{Surname}}
+
+%\includegraphics[scale=0.9]{UC1wb.pdf}
+
+\fi
+
+\subsubsection{Design Considerations}
