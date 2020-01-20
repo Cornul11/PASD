@@ -1,0 +1,127 @@
+\documentclass[11pt]{article}
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{enumitem}
+\usepackage{listings}
+\usepackage{filecontents}
+\usepackage{verbatim}
+\usepackage{eurosym}
+\usepackage[export]{adjustbox}
+\usepackage{hyperref}
+\usepackage[left=1in, right=1in]{geometry}
+\usepackage{float}
+\usepackage{pdfpages}
+\usepackage{tikz}
+\usepackage{aeguill}
+\usepackage{adjustbox}
+\usepackage{svg}
+
+\setcounter{tocdepth}{2}
+
+\newsavebox{\mysavebox}
+\newlength{\myrest}
+
+\begin{document}
+
+\definecolor{plantucolor0000}{RGB}{255,255,255}
+\definecolor{plantucolor0001}{RGB}{0,0,0}
+\definecolor{plantucolor0002}{RGB}{168,0,54}
+\definecolor{plantucolor0003}{RGB}{254,254,206}
+\definecolor{plantucolor0004}{RGB}{238,238,238}
+
+\newcommand{\iterno}{1}
+\newcommand{\projectname}{Ferry Service}
+
+\newcommand{\studentA}{Dan \textsc{\textsc{Pl\u{a}m\u{a}deal\u{a}}} \textit{(s3436624)}}
+\newcommand{\studentB}{Salem \textsc{Ismaiel} \textit{(s3105970)}}
+\newcommand{\studentC}{Ayham \textsc{Najem} \textit{(s2960141)}}
+
+\newcommand{\creator}[1]{{\it\small Created by: #1\\}}
+\newcommand{\updater}[1]{{\it\small First update by: #1\\}}
+\newcommand{\secondUpdater}[1]{{\it\small Second update by: #1\\}}
+
+\begin{titlepage}
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Defines a new command for the horizontal lines, change thickness here
+
+\center % Center everything on the page
+ 
+%----------------------------------------------------------------------------------------
+%	HEADING SECTIONS
+%----------------------------------------------------------------------------------------
+
+\textsc{\LARGE University of Groningen}\\[1.5cm] % Name of your university/college
+\textsc{\Large Problem Analysis And Software Design}\\[0.5cm] % Major heading such as course name
+
+\HRule \\[0.4cm]
+{ \huge \bfseries Iteration \iterno}\\[0.4cm] % Title of your document
+\HRule \\[1.5cm]
+
+\begin{minipage}{0.5\textwidth}
+\begin{flushleft} \large
+\emph{Authors:}\\
+\studentA \\
+\studentB \\
+\studentC
+\end{flushleft}
+\end{minipage}
+~
+\begin{minipage}{0.4\textwidth}
+\begin{flushright} \large
+\emph{Lecturer:} \\
+dr. R. \textsc{Smedinga} \\
+dr. E.O. \textsc{de Brock}
+
+\end{flushright}
+\end{minipage}\\[2cm]
+
+{\large \today}\\[2cm] % Date, change the \today to a set date if you want to be precise
+
+\includegraphics[width=50px, keepaspectratio]{logo_rug.jpg}\\[1cm] % Include a department/university logo - this will require the graphicx package
+
+\vfill % Fill the rest of the page with whitespace
+
+\end{titlepage}
+
+\tableofcontents
+\newpage
+
+\section{Management Summary}
+\input{1_Management_Summary/main.tex}
+
+\section{Introduction}
+\input{2_Introduction/main.tex}
+
+\section{General remarks/choices}
+\input{3_General_remarks/main.tex}
+\newpage
+
+\section{Actors and other stakeholders}
+\input{4_Actors/main.tex}
+
+\section{User wishes}
+\input{5_User_Wishes/main.tex}
+\newpage
+
+\section{Elaboration of user wishes}
+\input{6_UCs/main.tex}
+\newpage
+
+\section{Domain Model}
+\input{7_DM/main.tex}
+\newpage
+
+\section{Class diagram}
+\input{8_ClassDiagram/main.tex}
+
+\section{Notes on possible implementations}
+
+\section{Potential future developments}
+
+\section{Appendices}
+\input{11_Appendix/main.tex}
+
+\end{document}

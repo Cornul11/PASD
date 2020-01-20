@@ -1,5 +1,5 @@
 \subsubsection{Rationale/Context}
-A traveller might want to add a number of passengers on their ticket. They can do that until one week before the departure date. If the ticket's information is updated they would have to pay the additional costs.
+A traveller might want to add a number of passengers, dogs and bikes on their ticket. They can do that until one week before the departure date. If the ticket's information is updated they would have to pay the additional costs.
 \subsubsection{User story}
 As an employee, I want to update information of a certain ticket.
 \subsubsection{Use Case}
@@ -14,12 +14,12 @@ As an employee, I want to update information of a certain ticket.
 
 \textbf{Level:} User Goal
 
-\textbf{Primary Actor:} 
+\textbf{Primary Actor:}  KOENDES Employee
 
 \textbf{Stakeholders and Interests:} 
 \begin{itemize}
-\item Employee: wants fast, easy, and accurate retrieval and entry of data.
-\item Seller: Wants to be informed once the item is sold.
+\item Stakeholder: KOENDES Employee (wants fast, easy, and accurate retrieval and entry of data).
+\item Stakeholder: Traveler (Wants to update the ticket). 
 \end{itemize}
 \textbf{Preconditions:} 
 \begin{itemize}
@@ -31,8 +31,8 @@ As an employee, I want to update information of a certain ticket.
 
 \textbf{Success Guarantee (Postconditions):} 
 \begin{itemize}
-\item State change: The information has been updated if the departure date of the ticket is one week after. Otherwise, nothing happens. 
-\item Output: "Sorry the update cannot be done due to the delay in request" if the departure date is within one week; otherwise "The update has been done successfully!".
+\item State change: The information has been updated if the departure date of the ticket is at least one week after the date of requesting the update. Otherwise, nothing happens. 
+\item Output: "Sorry the update cannot be done due to the late request" if the departure date is within one week; otherwise "The update has been done successfully!".
 \end{itemize}
 
 \textbf{Main Success Scenario (Basic Flow):}
@@ -65,7 +65,7 @@ Extensions:
     \end{itemize}
 \textbf{Frequency of Occurrence:} 
 \begin{itemize}
-    \item Regularly, it really depends on the amount of passengers per trip.
+    \item Regularly.
 \end{itemize} 
 %\textbf{Open Issues:} Open Issues
 

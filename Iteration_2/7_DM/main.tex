@@ -1,7 +1,7 @@
 % \includegraphics[scale=0.8, center]{Domain_Model.pdf}
 
 \subsection{Introduction}
-In this section we will present the system's data model. The data model is going to be extended at each iteration with the new use cases. Each concept would be introduced with the related attributes, fields and properties. At the end the relations between these concepts would be defined.
+In this section we will present the system's data model. The data model is going to be extended at each iteration with the new use cases. Each concept would be introduced with the related attributes, fields and properties. The relations between these concepts would also be defined.
 \subsection{Concepts and their attributes from iteration 1}
 \begin{table}[H]
 \begin{tabular}{|c|c}
@@ -30,6 +30,14 @@ userID & Unique (Auto incremented) \\ emailAddress & Unique \\ password & Encryp
 \begin{table}[H]
 \begin{tabular}{|c|c}
 \cline{1-1}
+Customers & Customer at KOENDES ferries \\ \hline
+userID & Unique (Auto incremented) \\ emailAddress & Unique \\ password & Encrypted \\ firstName \\ lastName \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\begin{tabular}{|c|c}
+\cline{1-1}
 Tickets & Tickets for travelling with KOENDES ferries \\ \hline
 ticketID & Unique \\ userID &  Unique (linked to Travellers table)  \\ numberOfPassengers & Integer \\ dateAndTimeOfDeparture & Timestamp \\ dateAndTimeOfReturn & Timestamp \\ originCity \\ destinationCity \\ paymentMethod \\\hline
 \end{tabular}
@@ -43,6 +51,6 @@ reservationID & Unique \\ userID & Unique (linked to Customers table) \\ numberO
 \end{tabular}
 \end{table}
 \subsection{Associations and the graph representing them}
-Ferry \underline{1\phantom{x}\hspace{5ex}has\phantom{x}\hspace{5ex}*} Employee\\
-Ticket \underline{1\phantom{x}\hspace{5ex}has\phantom{x}\hspace{5ex}*} Travellers\\
-Reservation \underline{1\phantom{x}\hspace{5ex}has\phantom{x}\hspace{5ex}*} Travellers\\
+Ferry \underline{*\phantom{x}\hspace{5ex}has\phantom{x}\hspace{5ex}*} Employee\\
+Ticket \underline{1\phantom{x}\hspace{5ex}has\phantom{x}\hspace{5ex}1} Travellers\\
+Reservation \underline{1\phantom{x}\hspace{5ex}has\phantom{x}\hspace{5ex}1} Travellers\\

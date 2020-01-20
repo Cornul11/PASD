@@ -12,14 +12,27 @@
 \usepackage[export]{adjustbox}
 \usepackage{hyperref}
 \usepackage[left=1in, right=1in]{geometry}
-\usepackage{float}
 \usepackage{pdfpages}
+\usepackage{tikz}
+\usepackage{aeguill}
+\usepackage{adjustbox}
+\usepackage{float}
+\usepackage{svg}
 
 \setcounter{tocdepth}{2}
 
+\newsavebox{\mysavebox}
+\newlength{\myrest}
+
 \begin{document}
 
-\newcommand{\iterno}{1}
+\definecolor{plantucolor0000}{RGB}{255,255,255}
+\definecolor{plantucolor0001}{RGB}{0,0,0}
+\definecolor{plantucolor0002}{RGB}{168,0,54}
+\definecolor{plantucolor0003}{RGB}{254,254,206}
+\definecolor{plantucolor0004}{RGB}{238,238,238}
+
+\newcommand{\iterno}{3}
 \newcommand{\projectname}{Ferry Service}
 
 \newcommand{\studentA}{Dan \textsc{\textsc{Pl\u{a}m\u{a}deal\u{a}}} \textit{(s3436624)}}
