@@ -13,29 +13,29 @@ As a \textit{traveller}, I want to \textit{buy a ticket}, from a given origin to
 
 \textbf{Level:} User Goal
 
-\textbf{Primary Actor:} Commuter
+\textbf{Primary Actor:} Traveller
 
 \textbf{Stakeholders and Interests:} 
 \begin{itemize}
-\item \textit{Commuter:} Wants to buy a ticket quickly through the website, without having to go to the office.
+\item \textit{Traveller:} Wants to buy a ticket quickly through the website, without having to go to the office.
 \item \textit{Seller:} Wants the ticket purchasing process to become automated, thus to have less paperwork and less manual work.
 \end{itemize}
 
 \textbf{Preconditions:}
 \begin{itemize}
-\item The user is authenticated on the website and his account is confirmed.
+\item -
 \end{itemize}
 
 \textbf{Success Guarantee (Postconditions):}
 \begin{itemize}
-    \item State change: The information of ticket has been added and the information about a trip has been updated.
+    \item State change: The information of the ticket has been added.
     \item Output: A .pdf file containing the e-ticket shown to the screen and sent to the traveller's email address.
 \end{itemize}
 
 \textbf{Main Success Scenario (Basic Flow):}
 \begin{enumerate}
 \item The User indicates to the System, the wish to buy a ticket.
-\item The System sends the User a ticket customisation form with available departure/return dates and times.
+\item The System sends the User a ticket customisation form.
 \item The User fills in the form: the number of passengers, the number of bikes and dogs, the type of ferry, the origin, and the destination.
 \item The User sends the System the filled-in ticket selection form.
 \item The System checks whether the form is completed correctly (i.e., complete and error-free).
@@ -151,9 +151,17 @@ fi
 \subsubsection{Grey box SD}
 \creator{\studentC}
 \updater{\studentA}
+\begin{figure}[H]
+\includegraphics[scale=0.5]{Iteration_3/Files/UC1_gb1.png}
+\end{figure}
+\begin{figure}[H]
+\includegraphics[scale=0.5]{Iteration_3/Files/UC1_gb2.png}
+\end{figure}
+\iffalse
 \begin{lrbox}{\mysavebox}%
-\includegraphics[scale=0.45]{Iteration_3/Files/UC1_gb.png}
+\includegraphics[scale=0.5]{Iteration_3/Files/UC1_gb.png}
 \end{lrbox}
+\fi
 
 \ifdim\ht\mysavebox>\textheight
     \setlength{\myrest}{\ht\mysavebox}%
@@ -168,14 +176,27 @@ fi
     \usebox{\mysavebox}%
 \fi
 
-\iffalse \subsubsection{White box SD}
+\subsubsection{White box SD}
 \creator{\studentC}
 \updater{\studentA}
-\fi
-
-%\includegraphics[scale=0.9]{UC1wb.pdf}
-
-
+\begin{figure}[H]
+\includegraphics[scale=0.8]{Iteration_3/Files/UC1_wb1.png}
+\end{figure}
+\begin{figure}[H]
+\includegraphics[scale=0.8]{Iteration_3/Files/UC1_wb2.png}
+\end{figure}
+The previous two white boxes are pretty straightforward, they get the data from the filled-in form and store it in the newly created Transaction object.
+\begin{figure}[H]
+\includegraphics[scale=0.5]{Iteration_3/Files/UC1_wb3.png}
+\end{figure}
+The Transaction that will be actually executed on the backend depends on the input of the user. If the user chose payment through iDeal, then the service is executed and the response is forwarded back to the object, which in his turn forwards this to the interface. If the chose payment method was credit card, then a simple transaction through a connected microservice (not the scope of our document) is being executed and the result is forwarded back and saved into the object.
+\begin{figure}[H]
+\includegraphics[scale=0.8]{Iteration_3/Files/UC1_wb4.png}
+\end{figure}
+\begin{figure}[H]
+\includegraphics[scale=0.8]{Iteration_3/Files/UC1_wb5.png}
+\end{figure}
+The previous two white boxes don't need a lot of explanation, functions do as they're named.
 
 \subsubsection{Design Considerations}
 \begin{itemize}

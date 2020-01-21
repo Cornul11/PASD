@@ -2,7 +2,7 @@
 
 \subsection{Introduction}
 In this section we will present the system's data model. The data model is going to be extended at each iteration with the new use cases. Each concept would be introduced with the related attributes, fields and properties. The relations between these concepts would also be defined.
-\subsection{Concepts and their attributes from iteration 1}
+\subsection{Concepts and their attributes}
 \begin{table}[H]
 \begin{tabular}{|c|c}
 \cline{1-1}
@@ -39,7 +39,13 @@ customerID & Unique (Auto incremented) \\ emailAddress & Unique \\ password & En
 \begin{tabular}{|c|c}
 \cline{1-1}
 Tickets & Tickets for travelling with KOENDES ferries \\ \hline
-ticketID & Unique \\ userID &  Unique (linked to Travellers table)  \\ numberOfPassengers & Integer \\ originCity & String \\ destinationCity & String \\ paymentMethod & iDEAL / CreditCard \\\hline
+ticketID & Unique \\
+numberOfPassengers & Integer \\
+numberOfBikes & Integer\\
+numberOfDogs & Integer\\
+typeOfFerry & String\\
+destinationCity & String \\
+paymentResult & String \\\hline
 \end{tabular}
 \end{table}
 
@@ -47,7 +53,13 @@ ticketID & Unique \\ userID &  Unique (linked to Travellers table)  \\ numberOfP
 \begin{tabular}{|c|c}
 \cline{1-1}
 Reservations & Reservations for travelling with KOENDES ferries with trucks or cars \\ \hline
-reservationID & Unique \\ userID & Unique (linked to Customers table) \\ numberOfPassengers & Integer \\ dateAndTimeOfDeparture & Timestamp \\ dateAndTimeOfReturn & Timestamp \\ originCity & String \\ destinationCity & String \\ paymentMethod & iDEAL / CreditCard \\\hline
+reservationID & Unique \\
+ticketID & Integer\\
+numberOfPassengers & Integer \\
+dateAndTimeOfDeparture & Timestamp \\
+dateAndTimeOfReturn & Timestamp \\
+originCity & String \\
+destinationCity & String \\\hline
 \end{tabular}
 \end{table}
 
@@ -67,10 +79,31 @@ carID & Unique (Auto incremented) \\ licensePlate & String \\ reservationID & Un
 \end{tabular}
 \end{table}
 
+\begin{table}[H]
+\begin{tabular}{|c|c}
+\cline{1-1}
+Cars & Registered cars \\ \hline
+carID & Unique (Auto incremented) \\ licensePlate & String \\ reservationID & Unique (Linked to the Tickets table) \\\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\begin{tabular}{|c|c}
+\cline{1-1}
+Taxi Reservations & Reservations for travelling a taxi boat \\ \hline
+taxiReservationID & Unique \\
+dateAndTimeOfDeparture & Timestamp \\
+originCity & String \\
+destinationCity & String \\\hline
+\end{tabular}
+\end{table}
+
 \subsection{Associations and the graph representing them}
 Ferry \underline{*\phantom{x}\hspace{5ex}has\phantom{x}\hspace{5ex}*} Employee\\
 Ferry \underline{1\phantom{x}\hspace{5ex}has\phantom{x}\hspace{5ex}*} Travellers\\
 Travellers \underline{1\phantom{x}\hspace{5ex}has\phantom{x}\hspace{5ex}*} Tickets\\
 Travellers \underline{1\phantom{x}\hspace{5ex}has\phantom{x}\hspace{5ex}1} Reservations\\
 Tickets \underline{1\phantom{x}\hspace{5ex}has\phantom{x}\hspace{5ex}*} Cabin\\
+Tickets \underline{1\phantom{x}\hspace{5ex}has\phantom{x}\hspace{5ex}*} Travellers\\
+Reservations \underline{1\phantom{x}\hspace{5ex}has\phantom{x}\hspace{5ex}0..1} Tickets\\
 Reservations \underline{1\phantom{x}\hspace{5ex}has\phantom{x}\hspace{5ex}1} Cars\\
